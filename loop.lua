@@ -1,13 +1,16 @@
 local dfpwm    = require("cc.audio.dfpwm")
 local decoder  = dfpwm.make_decoder()
 local speakers = {peripheral.find("speaker")}
-local args = {song}
+local arg1, arg2, arg3 = ...
 
-if not fs.exists(song)
+if not fs.exists(arg1)
+
+then
 	return
-
+	
+else
 while true do
-	for chunk in io.lines(song, 16 * 1024) do
+	for chunk in io.lines(arg1, 16 * 1024) do
 			local buffer = decoder(chunk)
 		local play_functions = {}
 		for _, speaker in pairs(speakers) do
@@ -19,4 +22,5 @@ while true do
 		end
 		parallel.waitForAll(table.unpack(play_functions))
 	end
+end
 end
