@@ -1,7 +1,7 @@
 local dfpwm    = require("cc.audio.dfpwm")
 local decoder  = dfpwm.make_decoder()
 local speakers = {peripheral.find("speaker")}
-local arg1, arg2, arg3 = ...
+local arg1 = "back"
 
 if not fs.exists(arg1)
 
