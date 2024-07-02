@@ -2,9 +2,14 @@ local dfpwm    = require("cc.audio.dfpwm")
 local decoder  = dfpwm.make_decoder()
 local speakers = {peripheral.find("speaker")}
 local arg1 = "back"
+local detector = peripheral.find("playerDetector")
+
+if detector == nil then 
+    error("playerDetector not in range")
+	return 
+end 
 
 if not fs.exists(arg1)
-
 then
 	return
 	
