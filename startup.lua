@@ -15,7 +15,7 @@ if not fs.exists(arg1)
 	
 else
 	while true do
-		if detector.isPlayersInRange(30) then
+		if detector.isPlayersInRange(20) then
 			for chunk in io.lines(arg1, 16 * 1024) do
 					local buffer = decoder(chunk)
 				local play_functions = {}
